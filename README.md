@@ -42,7 +42,7 @@ tokenizer = BertTokenizerFast.from_pretrained(model_path)
 model = AlbertForTokenClassification.from_pretrained(model_path)
 ```
 
-运行`predict.py`会对模型进行评估
+运行`evaluate.py`会对模型进行评估
 
 |              | precision | recall | f1-score | support |
 | :----------: | :-------: | :----: | :------: | :-----: |
