@@ -42,7 +42,7 @@ tokenizer = BertTokenizerFast.from_pretrained(model_path)
 model = AlbertForTokenClassification.from_pretrained(model_path)
 ```
 
-运行`predict.py`会对模型进行评估
+运行`evaluate.py`会对模型进行评估
 
 |              | precision | recall | f1-score | support |
 | :----------: | :-------: | :----: | :------: | :-----: |
@@ -56,10 +56,10 @@ model = AlbertForTokenClassification.from_pretrained(model_path)
 | weighted avg |           |        |          |         |
 
 ```
-precision（精确率）：	模型预测为正类别的样本中，真正为正类别的样本所占的比例
-recall（召回率）：	真正为正类别的样本中，被模型预测为正类别的样本所占的比例
-f1-score（F1 分数）： 精确率和召回率的调和平均值，用于综合评估模型的预测性能
-support（支持数）：	每个标签在测试集中的真实样本数
+precision(精确率):	模型预测为正类别的样本中，真正为正类别的样本所占的比例
+recall(召回率):	真正为正类别的样本中，被模型预测为正类别的样本所占的比例
+f1-score(F1 分数): 精确率和召回率的调和平均值，用于综合评估模型的预测性能
+support(支持数):	每个标签在测试集中的真实样本数
 ```
 
 ## 预测
@@ -67,10 +67,12 @@ support（支持数）：	每个标签在测试集中的真实样本数
 在`predict.py`中设置你要预测的文本
 
 ```
-北京是中国的首都
+当地时间6月27日晚，美国总统拜登和前总统特朗普分别系着蓝色和红色领带登上辩论台，开始“舌战”。这是美国2024年大选首场候选人辩论，也是“拜特对决”时隔4年的再次交锋。
 ```
 
 ```
-LOC : 北京
-LOC : 中国
+LOC : 美国
+PER : 拜登
+PER : 特朗普
+PER : 拜特      (这是一个错误的识别)
 ```
